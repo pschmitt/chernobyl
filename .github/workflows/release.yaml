@@ -19,6 +19,7 @@ jobs:
       - name: Get changelog
         id: get_changelog
         run: |
+          git checkout master
           previous_tag="$(git describe --tags --abbrev=0)"
           changelog="$(git log --pretty=format:"%h %s" "${previous_tag}"..HEAD)"
           echo -e "Prev tag:\n${previous_tag}"
