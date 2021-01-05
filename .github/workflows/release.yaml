@@ -18,7 +18,7 @@ jobs:
         id: get_changelog
         run: |
           previous_tag="$(git describe --tags --abbrev=0)"
-          changelog="$(git log --pretty=format:"%h %s" "$(previous_tag)"..HEAD)"
+          changelog="$(git log --pretty=format:"%h %s" "${previous_tag}"..HEAD)"
           echo "::set-output name=changelog::${changelog}"
 
       - name: Create Release
